@@ -30,8 +30,8 @@ public class Migrate extends HttpServlet {
 		  // Create the Flyway instance
         String version = null;
 		request.setAttribute("V", version);
-		
-		if(version != null){
+		System.out.println("Version : "+version);
+			
 			Flyway flyway = new Flyway();
 	        // Point it to the database
 	        flyway.setDataSource("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
@@ -40,7 +40,7 @@ public class Migrate extends HttpServlet {
 	        flyway.setTarget(new MigrationVersion(version));
 	        // Start the migration
 	        flyway.migrate();
-		}
+	        
 	}
 
 	/**
