@@ -23,9 +23,20 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     	<servlet-name>GestionTestJDBC</servlet-name>
     	<servlet-class>lu.intech.bdd.GestionTestJDBC</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>Migrate</display-name>
+    	<servlet-name>Migrate</servlet-name>
+    	<servlet-class>migration.Migrate</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>GestionTestJDBC</servlet-name>
     	<url-pattern>/bdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Migrate</servlet-name>
+    	<url-pattern>/Migrate</url-pattern>
     </servlet-mapping>
     
     

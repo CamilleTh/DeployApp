@@ -45,19 +45,21 @@ public class TestJDBC {
             messages.add( "Objet requête créé !" );
      
             /* Exécution d'une requête de lecture */
-            resultat = statement.executeQuery( "SELECT id, email, mot_de_passe, nom FROM Utilisateur;" );
-            messages.add( "Requête \"SELECT id, email, mot_de_passe, nom FROM Utilisateur;\" effectuée !" );
+            resultat = statement.executeQuery( "SELECT idPersonne, prenom, nom, age, adresse FROM Personne;" );
+            messages.add( "Requête \"SELECT idPersonne, prenom, nom, age, adresse FROM Personne;\" effectuée !" );
       
             /* Récupération des données du résultat de la requête de lecture */
             while ( resultat.next() ) {
-                int idUtilisateur = resultat.getInt( "id" );
-                String emailUtilisateur = resultat.getString( "email" );
-                String motDePasseUtilisateur = resultat.getString( "mot_de_passe" );
-                String nomUtilisateur = resultat.getString( "nom" );
+                int idPersonne = resultat.getInt( "idPersonne" );
+                String prenom = resultat.getString( "prenom" );
+                String nom = resultat.getString( "nom" );
+                String age = resultat.getString( "age" );
+                String adresse = resultat.getString( "adresse" );
+
                 /* Formatage des données pour affichage dans la JSP finale. */
-                messages.add( "Données retournées par la requête : id = " + idUtilisateur + ", email = " + emailUtilisateur
-                        + ", motdepasse = "
-                        + motDePasseUtilisateur + ", nom = " + nomUtilisateur + "." );
+                messages.add( "Données retournées par la requête : id = " + idPersonne + ", prenom = " + prenom
+                        + ", nom = "
+                        + nom + ", age = " + age + ", adresse = " + adresse + "." );
             }
         } catch ( SQLException e ) {
             messages.add( "Erreur lors de la connexion : <br/>"
