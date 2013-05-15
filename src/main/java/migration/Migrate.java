@@ -28,8 +28,7 @@ public class Migrate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  // Create the Flyway instance
-        String version = null;
-		request.setAttribute("V", version);
+        String version = request.getParameter("V");
 		System.out.println("Version : "+version);
 			
 			Flyway flyway = new Flyway();
