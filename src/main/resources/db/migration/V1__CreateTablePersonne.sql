@@ -2,13 +2,10 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `mydb` ;
-
 -- -----------------------------------------------------
--- Table `mydb`.`Personne`
+-- Table `Personne`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Personne` (
+CREATE  TABLE IF NOT EXISTS `Personne` (
   `idPersonne` INT NOT NULL AUTO_INCREMENT ,
   `prenom` VARCHAR(45) NULL ,
   `nom` VARCHAR(45) NULL ,
@@ -16,8 +13,6 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Personne` (
   `adresse` VARCHAR(45) NULL ,
   PRIMARY KEY (`idPersonne`) )
 ENGINE = InnoDB;
-
-USE `mydb` ;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
