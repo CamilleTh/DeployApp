@@ -19,9 +19,9 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <servlet>
     	<description>
     	</description>
-    	<display-name>GestionTestJDBC</display-name>
-    	<servlet-name>GestionTestJDBC</servlet-name>
-    	<servlet-class>lu.intech.bdd.GestionTestJDBC</servlet-class>
+    	<display-name>Bdd1</display-name>
+    	<servlet-name>Bdd1</servlet-name>
+    	<servlet-class>lu.intech.bdd.Bdd1</servlet-class>
     </servlet>
     <servlet>
     	<description>
@@ -30,13 +30,35 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     	<servlet-name>Migrate</servlet-name>
     	<servlet-class>migration.Migrate</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>Bdd2</display-name>
+    	<servlet-name>Bdd2</servlet-name>
+    	<servlet-class>lu.intech.bdd.Bdd2</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>Bdd3</display-name>
+    	<servlet-name>Bdd3</servlet-name>
+    	<servlet-class>lu.intech.bdd.Bdd3</servlet-class>
+    </servlet>
     <servlet-mapping>
-    	<servlet-name>GestionTestJDBC</servlet-name>
-    	<url-pattern>/bdd</url-pattern>
+    	<servlet-name>Bdd1</servlet-name>
+    	<url-pattern>/bdd1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
     	<servlet-name>Migrate</servlet-name>
     	<url-pattern>/Migrate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Bdd2</servlet-name>
+    	<url-pattern>/bdd2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Bdd3</servlet-name>
+    	<url-pattern>/bdd3</url-pattern>
     </servlet-mapping>
     
     

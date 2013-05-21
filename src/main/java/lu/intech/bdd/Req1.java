@@ -11,7 +11,7 @@ import java.util.List;
  
 import javax.servlet.http.HttpServletRequest;
  
-public class TestJDBC {
+public class Req1 {
     /* La liste qui contiendra tous les résultats de nos essais */
     private List<String> messages = new ArrayList<String>();
  

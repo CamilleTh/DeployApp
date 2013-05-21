@@ -1,0 +1,1 @@
+ALTER TABLE `Personne` DROP `adresse`;
