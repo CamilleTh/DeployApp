@@ -72,7 +72,7 @@ public class Migrate extends HttpServlet {
 	    this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/migrate.jsp" ).forward( request, response );
 	}
 
-	private void datacopyRole() {
+	private void datacopyVille() {
 		 try {
 	          
 	            Class.forName( "com.mysql.jdbc.Driver" );
@@ -191,7 +191,7 @@ public class Migrate extends HttpServlet {
 		
 	}
 
-	private void datacopyVille() {
+	private void datacopyRole() {
 		 try {
 	          
 	            Class.forName( "com.mysql.jdbc.Driver" );
@@ -223,49 +223,34 @@ public class Migrate extends HttpServlet {
 	            statement5 = connexion.createStatement();	            
 	            
 	            /* Exécution d'une requête de lecture */
-	            resultat = statement.executeQuery( "SELECT role FROM Personne;" );	            
+	            resultat = statement.executeQuery( "SELECT idPersonne, role FROM Personne;" );	            
 	            
 	            /* Récupération des données du résultat de la requête de lecture */
 	            while ( resultat.next() ) {
 	                String role = resultat.getString( "role");
-	          
-	                
-	                System.out.println("SELECT COUNT(*) AS exist FROM Role WHERE nom = '"+role+"'; ");
-	                ResultSet resultat4 = statement4.executeQuery( "SELECT COUNT(*) AS exist FROM Role WHERE nom = '"+role+"';" );
-	                resultat4.next();
-	                
-	                int exist = resultat4.getInt("exist");
-	                
-	                System.out.println("exist:"+exist);
-	                
-	                if(exist == 0 ) roleSet.add(role);
-	                
-	   
+	                String idPersonne = resultat.getString( "idPersonne");
+	                // AJOUT DU NEW ROLE
+		                System.out.println("SELECT COUNT(*) AS exist FROM Role WHERE nom = '"+role+"'; ");
+		                ResultSet resultat4 = statement4.executeQuery( "SELECT COUNT(*) AS exist FROM Role WHERE nom = '"+role+"';" );
+		                resultat4.next();
+		                
+		                int exist = resultat4.getInt("exist");
+		                
+		                System.out.println("exist:"+exist);
+		                
+		                if(exist == 0 ) statement4.execute( "INSERT INTO Role (nom) VALUES ('"+role+"')" ); 
+		            // FIN AJOUT DU NEW ROLE   
+		                
+		            // AJOUT LIAISON
+		                ResultSet resultat5 = statement4.executeQuery("SELECT idRole FROM Role WHERE nom='"+role+"'" );
+		                resultat5.next();
+		                String idRole = resultat5.getString("idRole");
+		                
+		                statement4.execute( "INSERT IGNORE INTO `Role_has_Personne` (`Role_idRole`, `Personne_idPersonne`) VALUES ('"+idRole+"', '"+idPersonne+"');" ); 
+			        // FIN AJOUT LIAISON
+  
 	            }
-	            
-	            System.out.println("RoleSet:"+roleSet);
-	            
-	            
-	            for(ArrayList villeInfo : rol){
-	            	 statement2.execute("INSERT INTO `Ville` ( `nom`, `code`) VALUES ( '"+((String) villeInfo.get(0)).trim()+"', '"+((String) villeInfo.get(1))+"');");
-	            }
-	            
-	            System.out.println("OK 1");
-	            ResultSet resultat2;
-	            for(ArrayList villeLink : AdresseToVille){
-		            System.out.println("OK 2");
-		           System.out.println("SELECT idVille FROM Ville WHERE nom = '"+villeLink.get(1)+"';");
-		            resultat2  = statement3.executeQuery( "SELECT idVille FROM Ville WHERE nom = '"+villeLink.get(1)+"';" );
-	 	            System.out.println("OK 3");
 
-	            	 resultat2.next();
-		             String idVille = resultat2.getString( "idVille" );
-	            	 statement5.execute("UPDATE `Adresse` SET `Ville_idVille` = '"+idVille+"' WHERE `idAdresse` = '"+villeLink.get(0)+"' ");
-	 	            System.out.println("OK 4");
-
-	            	 
-	            }
-	            
 	            System.out.println("OK 5");
 
 	            

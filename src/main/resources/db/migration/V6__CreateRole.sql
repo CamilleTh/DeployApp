@@ -1,5 +1,5 @@
 CREATE  TABLE IF NOT EXISTS `40853_intech`.`Role` (
-  `idRole` INT(11) NOT NULL ,
+  `idRole` INT NOT NULL AUTO_INCREMENT ,
   `nom` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`idRole`) )
 ENGINE = InnoDB
@@ -7,7 +7,7 @@ DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_general_ci;
 
 CREATE  TABLE IF NOT EXISTS `40853_intech`.`Role_has_Personne` (
-  `Role_idRole` INT(11) NOT NULL ,
+  `Role_idRole` INT(11) NOT NULL AUTO_INCREMENT,
   `Personne_idPersonne` INT(11) NOT NULL ,
   PRIMARY KEY (`Role_idRole`, `Personne_idPersonne`) ,
   INDEX `fk_Role_has_Personne_Personne1_idx` (`Personne_idPersonne` ASC) ,
