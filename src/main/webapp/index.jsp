@@ -19,7 +19,7 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="#">DatabaseMigration</a>
+				<a class="brand" href="">DatabaseMigration</a>
 				<div class="navbar-content">
 					<ul class="nav">
 						<li class="step"><a href="bdd1">1</a></li>
@@ -33,20 +33,10 @@
 	</div>
 	<div class="container">
 
-		<div class="row main-features">
-			<div class="span6">
-				<div class="well">
-					<h3>Console</h3>	
-				</div>
-			</div>
-			<div class="span6">
-				<div class="well">
-					<h3>Script SQL</h3>
-				</div>
-			</div>
 			<div class="span12">
 				<div class="well">
 					<h3>Model</h3>
+					<img alt="0" src="images/0.png">
 				</div>
 			</div>
 		</div>

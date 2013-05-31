@@ -29,11 +29,12 @@
 						<ul class="nav">
 							<li><a href="bdd1">1</a></li>
 							<li><a href="bdd2">2</a></li>
-							<li  class="active"><a href="bdd3">3</a></li>
+							<li class="active"><a href="bdd3">3</a></li>
 							<li><a href="bdd4">4</a></li>
-						
-							<button type="button" id="flip" value="0" class="btn btn-primary">FLIP !</button>
-							
+
+							<button type="button" id="flip" value="0" class="btn btn-primary">FLIP
+								!</button>
+
 						</ul>
 					</div>
 				</div>
@@ -43,16 +44,17 @@
 			<div class="span6">
 				<div class="well">
 					<h3>Console</h3>
-					
-					<h4> Exécution de l'expansion des données </h4>
-					
-				
+
+					<h4>Exécution de l'expansion des données</h4>
+
+
 				</div>
 			</div>
 			<div class="span6">
 				<div class="well">
 					<h3>Data</h3>
 					<div id="data">DATA...</div>
+					<img id="loader" src="images/loader.gif">
 				</div>
 			</div>
 			<div class="span12">
@@ -68,6 +70,9 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
+	
+	$("#loader").hide();
+	
 	$("#flip").click(function() {
 		
 		   var value = $(this).val();
@@ -78,23 +83,32 @@ $(document).ready(function() {
 		   
 		   if(value == 0){
 			   $('#image').attr('src','images/3a.png'); 
-		   	     
+				$("#data").html("");
+			   	$("#loader").show(); 
 		   		$.ajax({
 		   			type: 'GET',
 		   			url : 'Flip1',
 		   			success : function(data){
 		   				console.log(data);
+					   	$("#loader").hide(); 
 		   				$("#data").html(data);
-		   			}
+
+		   			},
+		   			
 		   		});
 		   }
 		   else{   
 			   $('#image').attr('src','images/3b.png'); 
+			  
+				$("#data").html("");
+			   	$("#loader").show(); 
+
 			   $.ajax({
 		   			type: 'GET',
 		   			url : 'Flip2',
 		   			success : function(data){
 		   				console.log(data);
+		   				$("#loader").hide(); 
 		   				$("#data").html(data);
 		   			}
 		   		});
