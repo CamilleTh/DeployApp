@@ -12,8 +12,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="jstl.jar"/>
-	<classpathentry kind="lib" path="standard.jar"/>
+	<classpathentry kind="lib" path="/home/camille/workspace/DeployApp/src/main/webapp/WEB-INF/lib/jstl.jar"/>
+	<classpathentry kind="lib" path="/home/camille/workspace/DeployApp/src/main/webapp/WEB-INF/lib/standard.jar"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
@@ -30,5 +30,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/databaseMigration.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

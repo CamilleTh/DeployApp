@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.main-features {
+  margin-top: 50px;      
+}
+
+img{
+	display: block;
+	margin:auto;
+}

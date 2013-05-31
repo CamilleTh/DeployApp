@@ -13,6 +13,6 @@ CREATE TABLE IF NOT EXISTS `Flipping` (
 
 INSERT INTO `Flipping` (`flip`) VALUES ('1');
 
-INSERT INTO `40853_intech`.`Personne` (`idPersonne`, `prenom`, `nom`, `age`, `role`, `adresse`) VALUES (NULL, 'Camille', 'THOMASSIN', '23', 'Etudiant', '7 - rue de la liberté - 57130 - VERNEVILLE - FRANCE');
+INSERT INTO `40853_intech`.`Personne` (`idPersonne`, `prenom`, `nom`, `age`, `role`, `adresse`) VALUES (NULL, 'Camille', 'THOMASSIN', '23', 'Etudiant', '7 - rue de la liberte - 57130 - VERNEVILLE - FRANCE');
 INSERT INTO `40853_intech`.`Personne` (`idPersonne`, `prenom`, `nom`, `age`, `role`, `adresse`) VALUES (NULL, 'Camille', 'THOMASSIN', '23', 'Stagiaire', '23 - rue de la tour - 57000 - THIONVILLE - FRANCE');
 INSERT INTO `40853_intech`.`Personne` (`idPersonne`, `prenom`, `nom`, `age`, `role`, `adresse`) VALUES (NULL, 'Jean', 'BONBEUR', '25', 'Stagiaire', '42 -  rue de platafin - 57000 - THIONVILLE - FRANCE');

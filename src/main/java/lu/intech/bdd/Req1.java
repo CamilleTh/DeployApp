@@ -17,7 +17,6 @@ public class Req1 {
  
     public List<String> executerTests( HttpServletRequest request ) {
         /* Chargement du driver JDBC pour MySQL */
-        System.out.println("ENTER2");
 
         try {
             messages.add( "Chargement du driver..." );

@@ -17,7 +17,6 @@ public class Req2 {
     
     public List<String> executerTests( HttpServletRequest request ) {
         /* Chargement du driver JDBC pour MySQL */
-        System.out.println("ENTER2");
 
         try {
             messages.add( "Chargement du driver..." );
@@ -99,15 +98,13 @@ public class Req2 {
         }else return false;
 	}
 
-	private List<String> requestfillOff(List<String> messages, Connection connexion) throws SQLException {
+	public List<String> requestfillOff(List<String> messages, Connection connexion) throws SQLException {
 		
-		 messages.add("FLIP OFF ");		 
 
 		
         /* Exécution d'une requête de lecture */
 		Statement statement = connexion.createStatement();
         ResultSet resultat = statement.executeQuery( "SELECT idPersonne, prenom, nom, age, adresse FROM Personne;" );
-        messages.add( "Requête \"SELECT idPersonne, prenom, nom, age, adresse FROM Personne;\" effectuée !" );
   
         /* Récupération des données du résultat de la requête de lecture */
         while ( resultat.next() ) {
@@ -118,21 +115,20 @@ public class Req2 {
             String adresse = resultat.getString( "adresse" );
 
             /* Formatage des données pour affichage dans la JSP finale. */
-            messages.add( "Données retournées par la requête : id = " + idPersonne + ", prenom = " + prenom
+            
+            messages.add( "id = " + idPersonne + ", prenom = " + prenom
                     + ", nom = "
                     + nom + ", age = " + age + ", adresse = " + adresse + "." );
         }	
         return messages;
 	}
 	
-	private List<String> requestfillOn(List<String> messages, Connection connexion) throws SQLException {
+	public List<String> requestfillOn(List<String> messages, Connection connexion) throws SQLException {
 		
-		 messages.add("FLIP ON ");		 
 		 
 		/* Exécution d'une requête de lecture */
 		Statement statement = connexion.createStatement();
         ResultSet resultat = statement.executeQuery( "SELECT idPersonne, prenom, nom, age, num, rue, code,ville, pays FROM Personne,Adresse WHERE Personne.`Adresse_idAdresse` = Adresse.`idAdresse`" );
-        messages.add( "Requête \"SELECT idPersonne, prenom, nom, age, num, rue, code,ville, pays FROM Personne,Adresse WHERE Personne.`Adresse_idAdresse` = Adresse.`idAdresse`;\" effectuée !" );
   
         /* Récupération des données du résultat de la requête de lecture */
         while ( resultat.next() ) {
@@ -147,7 +143,7 @@ public class Req2 {
             String pays = resultat.getString( "pays" );
 
             /* Formatage des données pour affichage dans la JSP finale. */
-            messages.add( "Données retournées par la requête : id = " + idPersonne + ", prenom = " + prenom
+            messages.add( "id = " + idPersonne + ", prenom = " + prenom
                     + ", nom = "
                     + nom + ", age = " + age + ", adresse = " + num  + " - " + rue + " - " + code + " - " + ville + " - " + pays +"." );
         }	

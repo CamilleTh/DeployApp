@@ -44,6 +44,27 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     	<servlet-name>Bdd3</servlet-name>
     	<servlet-class>lu.intech.bdd.Bdd3</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>Flip1</display-name>
+    	<servlet-name>Flip1</servlet-name>
+    	<servlet-class>lu.intech.bdd.Flip1</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>Flip2</display-name>
+    	<servlet-name>Flip2</servlet-name>
+    	<servlet-class>lu.intech.bdd.Flip2</servlet-class>
+    </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>Bdd4</display-name>
+    	<servlet-name>Bdd4</servlet-name>
+    	<servlet-class>lu.intech.bdd.Bdd4</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>Bdd1</servlet-name>
     	<url-pattern>/bdd1</url-pattern>
@@ -59,6 +80,18 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <servlet-mapping>
     	<servlet-name>Bdd3</servlet-name>
     	<url-pattern>/bdd3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Flip1</servlet-name>
+    	<url-pattern>/Flip1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Flip2</servlet-name>
+    	<url-pattern>/Flip2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>Bdd4</servlet-name>
+    	<url-pattern>/bdd4</url-pattern>
     </servlet-mapping>
     
     
