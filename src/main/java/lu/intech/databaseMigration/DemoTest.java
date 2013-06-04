@@ -11,7 +11,7 @@ import migrate.MigrationManager;
  * Hello world!
  *
  */
-public class App 
+public class DemoTest 
 {
 
 	private static MigrationManager migrate;

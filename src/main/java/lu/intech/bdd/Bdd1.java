@@ -19,8 +19,7 @@ public class Bdd1 extends HttpServlet {
 
 		/* Initialisation de l'objet Java et récupération des messages */
 		 List<String> messages = new ArrayList<String>();
-		 
-		 
+
 		// Creation de l'objet
 		MigrationManager migrate = new  MigrationManager();
 		messages.add("Objet Migrate instancié");

@@ -25,22 +25,22 @@ public class Bdd3 extends HttpServlet {
 
         MigrationManager migrate = new MigrationManager();
     	migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
-    	
-    	Statement statement = migrate.getStatement();
-		Statement statement2 = migrate.getStatement();
 
-		copyDataAdresse(statement, statement2);
+		copyDataAdresse(migrate);
 		
         /* Transmission vers la page en charge de l'affichage des résultats */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 
-    private static void copyDataAdresse(Statement statement, Statement statement2) {
+    private static void copyDataAdresse(MigrationManager migrate) {
 
+    	Statement statementSelect = migrate.getStatement();
+    	Statement statementInsert = migrate.getStatement();
+    	
 		/* Exécution d'une requête de lecture */
 		ResultSet resultat;
 		try {
-			resultat = statement.executeQuery( "SELECT idPersonne, adresse FROM Personne;" );
+			resultat = statementSelect.executeQuery( "SELECT idPersonne, adresse FROM Personne;" );
 
 
 			/* Récupération des données du résultat de la requête de lecture */
@@ -50,8 +50,8 @@ public class Bdd3 extends HttpServlet {
 
 				String[] tabAdresse = adresse.split("-");
 
-				statement2.execute("INSERT INTO `Adresse` (`idAdresse`, `num`, `rue`, `code`, `ville`, `pays`) VALUES (NULL, '"+tabAdresse[0].trim()+"', '"+tabAdresse[1].trim()+"', '"+tabAdresse[2].trim()+"', '"+tabAdresse[3].trim()+"', '"+tabAdresse[4].trim()+"');");
-				ResultSet resMax = statement2.executeQuery("SELECT MAX(  `idAdresse` ) AS idAdresseNext FROM Adresse");
+				statementInsert.execute("INSERT INTO `Adresse` (`idAdresse`, `num`, `rue`, `code`, `ville`, `pays`) VALUES (NULL, '"+tabAdresse[0].trim()+"', '"+tabAdresse[1].trim()+"', '"+tabAdresse[2].trim()+"', '"+tabAdresse[3].trim()+"', '"+tabAdresse[4].trim()+"');");
+				ResultSet resMax = statementInsert.executeQuery("SELECT MAX(  `idAdresse` ) AS idAdresseNext FROM Adresse");
 				resMax.next();
 				int idAdresseNext = resMax.getInt("idAdresseNext");
 
@@ -62,7 +62,7 @@ public class Bdd3 extends HttpServlet {
 					}
 				}
 
-				statement2.executeUpdate("UPDATE  `Personne` SET  `Adresse_idAdresse` =  '"+idAdresseNext+"' WHERE  `Personne`.`idPersonne` ="+idPersonne+";");
+				statementInsert.executeUpdate("UPDATE  `Personne` SET  `Adresse_idAdresse` =  '"+idAdresseNext+"' WHERE  `Personne`.`idPersonne` ="+idPersonne+";");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
