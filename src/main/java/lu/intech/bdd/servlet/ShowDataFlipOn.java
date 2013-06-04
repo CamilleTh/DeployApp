@@ -43,20 +43,22 @@ public class ShowDataFlipOn extends HttpServlet {
 
 		out.write("<h3>Depuis la table Adresse</h3>");
 
-		try {
+		
 			for(String s : req2.requestfillOn(messages, connexion)){
 				out.write(s);
 				out.write("<br>");
 			}
 
 
+		
 			if(connexion != null){
-				connexion.close();
-			}
+				try {
+					connexion.close();
+				} catch (SQLException e) {
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+				}
+			}
+		
 	}
 
 	/**

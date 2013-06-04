@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +39,7 @@ public class ExpansionDataAdresse extends HttpServlet {
     	Statement statementSelect = null;
     	Statement statementInsert = null;
 		ResultSet resultat = null;
- 
+		ResultSet resMax = null;
 		try {
 			 connection = (Connection) migrate.getConnection();
 		    
@@ -61,26 +60,22 @@ public class ExpansionDataAdresse extends HttpServlet {
 
 				String[] tabAdresse = adresse.split("-");
 
-				// REQUETE INSERTION ADRESE
+				// REQUETE INSERTION ADRESSE
 				String sqlInsertAdresse = "INSERT INTO `Adresse` (`idAdresse`, `num`, `rue`, `code`, `ville`, `pays`) VALUES (NULL, ?, ?, ?, ?, ?)";
 				PreparedStatement prestInsert = ((Connection) migrate.getConnection()).prepareStatement(sqlInsertAdresse);
 				
-				for(int i =0;i<5;i++){
+				int nbChamp = 5;
+				for(int i =0;i<nbChamp;i++){
 					prestInsert.setString(i+1, tabAdresse[i]);
 				}
 				
 				prestInsert.execute();
 
-				ResultSet resMax = statementInsert.executeQuery("SELECT MAX(  `idAdresse` ) AS idAdresseNext FROM Adresse");
+				resMax = statementInsert.executeQuery("SELECT MAX(  `idAdresse` ) AS idAdresseNext FROM Adresse");
 				resMax.next();
 				int idAdresseNext = resMax.getInt("idAdresseNext");
 
-				if ( resMax != null ) {
-					try {
-						resMax.close();
-					} catch ( SQLException ignore ) {
-					}
-				}
+				
 
 				// REQUETE MAJ DE LA CLE 
 				String sqlUpdateKey = "UPDATE  `Personne` SET  `Adresse_idAdresse` =  ? WHERE  `Personne`.`idPersonne` = ? ;";
@@ -102,6 +97,12 @@ public class ExpansionDataAdresse extends HttpServlet {
 					resultat.close();
 				} catch ( SQLException ignore ) {
 				
+				}
+			}
+			if ( resMax != null ) {
+				try {
+					resMax.close();
+				} catch ( SQLException ignore ) {
 				}
 			}
 			if ( statementInsert != null ) {

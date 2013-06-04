@@ -46,7 +46,7 @@ public class ShowDataFlipOff extends HttpServlet {
 
 		out.write("<h3>Depuis l'attribut adresse de la table Personne</h3>");
 
-		try {
+		
 			for(String s : req2.requestfillOff(messages, connexion)){
 				out.write(s);
 				out.write("<br>");
@@ -54,13 +54,15 @@ public class ShowDataFlipOff extends HttpServlet {
 
 
 			if(connexion != null){
-				connexion.close();
+				try {
+					connexion.close();
+				} catch (SQLException e) {
+					
+				}
 			}
 
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
 	}
 
 	/**
