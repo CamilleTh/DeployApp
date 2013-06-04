@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
  
 public class SelectAdresseRequest {
     /* La liste qui contiendra tous les résultats de nos essais */
-    private List<String> messages = new ArrayList<String>();
 
 	public List<String> requestfillOff(List<String> messages, Connection connexion) throws SQLException {
 		

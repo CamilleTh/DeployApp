@@ -35,10 +35,6 @@ public class InitialisationServlet extends HttpServlet {
 		messages.add("Initialisation");
 		messages.add("Création de la table de gestion du flipping");
 
-		// Initialisation de la base de données, creation du répertoire pour déposer ces fichiers de migration, creation de la table pour la gestion du flipping
-		//m.initAndReset();
-		//System.out.println("Initialisation et reset de la base");
-
 		// Creation d'un boolean de flipping : test
 		migrate.createFlipBoolean("test");
 		messages.add("Creation du boolean de flipping ");

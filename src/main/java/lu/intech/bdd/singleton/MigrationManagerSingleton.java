@@ -2,7 +2,7 @@ package lu.intech.bdd.singleton;
 
 import migrate.MigrationManager;
 
-public class MigrationManagerSingleton {
+public final class MigrationManagerSingleton {
         
 		private static volatile MigrationManager instance = null;
  

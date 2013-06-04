@@ -24,7 +24,6 @@ public class ExpansionDataAdresse extends HttpServlet {
     public static final String VUE          = "/WEB-INF/jsp/step3.jsp";
  
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
-        System.out.println("ENTER");
 
         MigrationManager migrate = MigrationManagerSingleton.getInstance();
         migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
@@ -37,13 +36,16 @@ public class ExpansionDataAdresse extends HttpServlet {
 
     private static void copyDataAdresse(MigrationManager migrate) {
 
-    	Statement statementSelect = migrate.getStatement();
-    	Statement statementInsert = migrate.getStatement();
+    	Connection connection = (Connection) migrate.getConnection();
+    
     	
 		/* Exécution d'une requête de lecture */
 		ResultSet resultat;
 		try {
 			
+			Statement statementSelect = connection.createStatement();
+	    	Statement statementInsert = connection.createStatement();
+	    	
 			resultat = statementSelect.executeQuery( "SELECT idPersonne, adresse FROM Personne;" );
 
 
@@ -84,7 +86,21 @@ public class ExpansionDataAdresse extends HttpServlet {
 				
 				prestUpdate.execute();
 				
+				
 			}
+			
+			if ( resultat != null ) {
+				try {
+					resultat.close();
+				} catch ( SQLException ignore ) {
+				
+				}
+			}
+			
+			statementSelect.close();
+	    	statementInsert.close();
+	    	connection.close();
+	    	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
