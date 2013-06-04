@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import lu.intech.bdd.request.Initialisation;
+import lu.intech.bdd.singleton.MigrationManagerSingleton;
 import migrate.MigrationManager;
 
 public class InitialisationServlet extends HttpServlet {
@@ -19,10 +20,10 @@ public class InitialisationServlet extends HttpServlet {
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
 		/* Initialisation de l'objet Java et récupération des messages */
-		 List<String> messages = new ArrayList<String>();
+		List<String> messages = new ArrayList<String>();
 
 		// Creation de l'objet
-		MigrationManager migrate = new  MigrationManager();
+		MigrationManager migrate = MigrationManagerSingleton.getInstance();
 		messages.add("Objet Migrate instancié");
 
 		// Lien avec la base et connexion ...
@@ -44,12 +45,12 @@ public class InitialisationServlet extends HttpServlet {
 
 		// migration vers la V1 initialisation
 		migrate.migrateTo("1");
-		
+
 		Initialisation test = new Initialisation();
 		messages.addAll(test.executerTests( request ));
 
 		/* Enregistrement de la liste des messages dans l'objet requête */
-		 request.setAttribute( ATT_MESSAGES, messages );
+		request.setAttribute( ATT_MESSAGES, messages );
 
 
 		/* Transmission vers la page en charge de l'affichage des résultats */

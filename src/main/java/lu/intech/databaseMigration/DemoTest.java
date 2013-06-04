@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+import lu.intech.bdd.singleton.MigrationManagerSingleton;
 import migrate.MigrationManager;
 
 /**
@@ -13,8 +14,6 @@ import migrate.MigrationManager;
  */
 public class DemoTest 
 {
-
-	private static MigrationManager migrate;
 
 
 	public static void main( String[] args )
@@ -53,7 +52,7 @@ public class DemoTest
 	private static void phase1() {
 		
 		// Creation de l'objet
-		migrate = new  MigrationManager();
+    	MigrationManager migrate = MigrationManagerSingleton.getInstance();
 		System.out.println("Objet Migrate instancié");
 
 		// Lien avec la base et connection ..
@@ -81,13 +80,15 @@ public class DemoTest
 
 
 	private static void phase2() {
-		
+    	MigrationManager migrate = MigrationManagerSingleton.getInstance();
+
 		migrate.migrateTo("2");
 		
 	}
 
 	private static void phase3() {
-		
+    	MigrationManager migrate = MigrationManagerSingleton.getInstance();
+
 		Statement statement = migrate.getStatement();
 		Statement statement2 = migrate.getStatement();
 
@@ -96,7 +97,8 @@ public class DemoTest
 	}
 	
 	private static void phase4() {
-		
+    	MigrationManager migrate = MigrationManagerSingleton.getInstance();
+
 		migrate.migrateTo("3");
 		
 	}

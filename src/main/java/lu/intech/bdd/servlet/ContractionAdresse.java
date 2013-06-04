@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.singleton.MigrationManagerSingleton;
 import migrate.MigrationManager;
 
 /**
@@ -18,7 +19,7 @@ public class ContractionAdresse extends HttpServlet {
     public static final String VUE          = "/WEB-INF/jsp/step4.jsp";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	MigrationManager migrate = new  MigrationManager();
+    	MigrationManager migrate = MigrationManagerSingleton.getInstance();
 		migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
     	migrate.migrateTo("3");
     	/* Initialisation de l'objet Java et récupération des messages */

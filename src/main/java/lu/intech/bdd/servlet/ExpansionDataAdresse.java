@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.singleton.MigrationManagerSingleton;
 import migrate.MigrationManager;
 
 /**
@@ -25,8 +26,8 @@ public class ExpansionDataAdresse extends HttpServlet {
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         System.out.println("ENTER");
 
-        MigrationManager migrate = new MigrationManager();
-    	migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
+        MigrationManager migrate = MigrationManagerSingleton.getInstance();
+        migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
 
 		copyDataAdresse(migrate);
 		
