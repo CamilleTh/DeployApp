@@ -1,4 +1,4 @@
-package lu.intech.bdd;
+package lu.intech.bdd.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.request.Initialisation;
 import migrate.MigrationManager;
 
-public class Bdd1 extends HttpServlet {
+public class InitialisationServlet extends HttpServlet {
 	public static final String ATT_MESSAGES = "messages";
 	public static final String VUE          = "/WEB-INF/jsp/step1.jsp";
 
@@ -44,7 +45,7 @@ public class Bdd1 extends HttpServlet {
 		// migration vers la V1 initialisation
 		migrate.migrateTo("1");
 		
-		Req1 test = new Req1();
+		Initialisation test = new Initialisation();
 		messages.addAll(test.executerTests( request ));
 
 		/* Enregistrement de la liste des messages dans l'objet requête */

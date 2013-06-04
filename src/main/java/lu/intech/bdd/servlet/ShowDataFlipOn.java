@@ -1,4 +1,4 @@
-package lu.intech.bdd;
+package lu.intech.bdd.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,18 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.request.SelectAdresseRequest;
 import migrate.MigrationManager;
 
 /**
  * Servlet implementation class Flip2
  */
-public class Flip2 extends HttpServlet {
+public class ShowDataFlipOn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Flip2() {
+    public ShowDataFlipOn() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +32,7 @@ public class Flip2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Req2 req2 = new Req2();
+		SelectAdresseRequest req2 = new SelectAdresseRequest();
 		
 		MigrationManager migrate = new  MigrationManager();
 		migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");

@@ -1,4 +1,4 @@
-package lu.intech.bdd;
+package lu.intech.bdd.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import migrate.MigrationManager;
 /**
  * Servlet implementation class Bdd4
  */
-public class Bdd4 extends HttpServlet {
+public class ContractionAdresse extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	public static final String ATT_MESSAGES = "messages";
@@ -20,7 +20,7 @@ public class Bdd4 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	MigrationManager migrate = new  MigrationManager();
 		migrate.setDataSourceSQL("jdbc:mysql://mysql1.alwaysdata.com/40853_intech", "40853_2", "intech");
-    	migrate.migrateTo("2");
+    	migrate.migrateTo("3");
     	/* Initialisation de l'objet Java et récupération des messages */
       
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );

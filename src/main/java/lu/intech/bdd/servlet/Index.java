@@ -1,4 +1,4 @@
-package lu.intech.bdd;
+package lu.intech.bdd.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

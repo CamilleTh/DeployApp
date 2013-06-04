@@ -1,4 +1,4 @@
-package lu.intech.bdd;
+package lu.intech.bdd.servlet;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ import migrate.MigrationManager;
 /**
  * Servlet implementation class Bdd3
  */
-public class Bdd3 extends HttpServlet {
+public class ExpansionDataAdresse extends HttpServlet {
 	public static final String ATT_MESSAGES = "messages";
     public static final String VUE          = "/WEB-INF/jsp/step3.jsp";
  

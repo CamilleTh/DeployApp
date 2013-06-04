@@ -19,9 +19,9 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <servlet>
     	<description>
     	</description>
-    	<display-name>Bdd1</display-name>
-    	<servlet-name>Bdd1</servlet-name>
-    	<servlet-class>lu.intech.bdd.Bdd1</servlet-class>
+    	<display-name>InitialisationServlet</display-name>
+    	<servlet-name>InitialisationServlet</servlet-name>
+    	<servlet-class>lu.intech.bdd.servlet.InitialisationServlet</servlet-class>
     </servlet>
     <servlet>
     	<description>
@@ -33,47 +33,47 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <servlet>
     	<description>
     	</description>
-    	<display-name>Bdd2</display-name>
-    	<servlet-name>Bdd2</servlet-name>
-    	<servlet-class>lu.intech.bdd.Bdd2</servlet-class>
+    	<display-name>MigrateToExpansionAdresse</display-name>
+    	<servlet-name>MigrateToExpansionAdresse</servlet-name>
+    	<servlet-class>lu.intech.bdd.servlet.MigrateToExpansionAdresse</servlet-class>
     </servlet>
     <servlet>
     	<description>
     	</description>
-    	<display-name>Bdd3</display-name>
-    	<servlet-name>Bdd3</servlet-name>
-    	<servlet-class>lu.intech.bdd.Bdd3</servlet-class>
+    	<display-name>ExpansionDataAdresse</display-name>
+    	<servlet-name>ExpansionDataAdresse</servlet-name>
+    	<servlet-class>lu.intech.bdd.servlet.ExpansionDataAdresse</servlet-class>
     </servlet>
     <servlet>
     	<description>
     	</description>
-    	<display-name>Flip1</display-name>
-    	<servlet-name>Flip1</servlet-name>
-    	<servlet-class>lu.intech.bdd.Flip1</servlet-class>
+    	<display-name>ShowDataFlipOff</display-name>
+    	<servlet-name>ShowDataFlipOff</servlet-name>
+    	<servlet-class>lu.intech.bdd.servlet.ShowDataFlipOff</servlet-class>
     </servlet>
     <servlet>
     	<description>
     	</description>
-    	<display-name>Flip2</display-name>
-    	<servlet-name>Flip2</servlet-name>
-    	<servlet-class>lu.intech.bdd.Flip2</servlet-class>
+    	<display-name>ShowDataFlipOn</display-name>
+    	<servlet-name>ShowDataFlipOn</servlet-name>
+    	<servlet-class>lu.intech.bdd.servlet.ShowDataFlipOn</servlet-class>
     </servlet>
     <servlet>
     	<description>
     	</description>
-    	<display-name>Bdd4</display-name>
-    	<servlet-name>Bdd4</servlet-name>
-    	<servlet-class>lu.intech.bdd.Bdd4</servlet-class>
+    	<display-name>ContractionAdresse</display-name>
+    	<servlet-name>ContractionAdresse</servlet-name>
+    	<servlet-class>lu.intech.bdd.servlet.ContractionAdresse</servlet-class>
     </servlet>
     <servlet>
     	<description>
     	</description>
     	<display-name>Index</display-name>
     	<servlet-name>Index</servlet-name>
-    	<servlet-class>lu.intech.bdd.Index</servlet-class>
+    	<servlet-class>lu.intech.bdd.servlet.Index</servlet-class>
     </servlet>
     <servlet-mapping>
-    	<servlet-name>Bdd1</servlet-name>
+    	<servlet-name>InitialisationServlet</servlet-name>
     	<url-pattern>/bdd1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -81,23 +81,23 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     	<url-pattern>/Migrate</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    	<servlet-name>Bdd2</servlet-name>
+    	<servlet-name>MigrateToExpansionAdresse</servlet-name>
     	<url-pattern>/bdd2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    	<servlet-name>Bdd3</servlet-name>
+    	<servlet-name>ExpansionDataAdresse</servlet-name>
     	<url-pattern>/bdd3</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    	<servlet-name>Flip1</servlet-name>
+    	<servlet-name>ShowDataFlipOff</servlet-name>
     	<url-pattern>/Flip1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    	<servlet-name>Flip2</servlet-name>
+    	<servlet-name>ShowDataFlipOn</servlet-name>
     	<url-pattern>/Flip2</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-    	<servlet-name>Bdd4</servlet-name>
+    	<servlet-name>ContractionAdresse</servlet-name>
     	<url-pattern>/bdd4</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
