@@ -24,7 +24,7 @@
 		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="#">DatabaseMigration</a>
+					<a class="brand" href="index">DatabaseMigration</a>
 					<div class="navbar-content">
 						<ul class="nav">
 							<li><a href="bdd1">1</a></li>
