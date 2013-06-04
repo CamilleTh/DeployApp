@@ -1,6 +1,8 @@
 package lu.intech.bdd;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,6 +42,7 @@ public class Bdd3 extends HttpServlet {
 		/* Exécution d'une requête de lecture */
 		ResultSet resultat;
 		try {
+			
 			resultat = statementSelect.executeQuery( "SELECT idPersonne, adresse FROM Personne;" );
 
 
@@ -50,7 +53,16 @@ public class Bdd3 extends HttpServlet {
 
 				String[] tabAdresse = adresse.split("-");
 
-				statementInsert.execute("INSERT INTO `Adresse` (`idAdresse`, `num`, `rue`, `code`, `ville`, `pays`) VALUES (NULL, '"+tabAdresse[0].trim()+"', '"+tabAdresse[1].trim()+"', '"+tabAdresse[2].trim()+"', '"+tabAdresse[3].trim()+"', '"+tabAdresse[4].trim()+"');");
+				// REQUETE INSERTION ADRESE
+				String sqlInsertAdresse = "INSERT INTO `Adresse` (`idAdresse`, `num`, `rue`, `code`, `ville`, `pays`) VALUES (NULL, ?, ?, ?, ?, ?)";
+				PreparedStatement prestInsert = ((Connection) migrate.getConnection()).prepareStatement(sqlInsertAdresse);
+				
+				for(int i =0;i<5;i++){
+					prestInsert.setString(i+1, tabAdresse[i]);
+				}
+				
+				prestInsert.execute();
+
 				ResultSet resMax = statementInsert.executeQuery("SELECT MAX(  `idAdresse` ) AS idAdresseNext FROM Adresse");
 				resMax.next();
 				int idAdresseNext = resMax.getInt("idAdresseNext");
@@ -62,7 +74,15 @@ public class Bdd3 extends HttpServlet {
 					}
 				}
 
-				statementInsert.executeUpdate("UPDATE  `Personne` SET  `Adresse_idAdresse` =  '"+idAdresseNext+"' WHERE  `Personne`.`idPersonne` ="+idPersonne+";");
+				// REQUETE MAJ DE LA CLE 
+				String sqlUpdateKey = "UPDATE  `Personne` SET  `Adresse_idAdresse` =  ? WHERE  `Personne`.`idPersonne` = ? ;";
+				PreparedStatement prestUpdate = ((Connection) migrate.getConnection()).prepareStatement(sqlUpdateKey);
+				
+				prestUpdate.setInt(1, idAdresseNext);
+				prestUpdate.setInt(2, idPersonne);
+				
+				prestUpdate.execute();
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
