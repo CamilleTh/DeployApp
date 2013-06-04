@@ -33,7 +33,7 @@ public class ShowDataFlipOff extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SelectAdresseRequest req2 = new SelectAdresseRequest();
+		SelectAdresseRequest selectAdresseRequest = new SelectAdresseRequest();
 
 
 
@@ -47,7 +47,7 @@ public class ShowDataFlipOff extends HttpServlet {
 		out.write("<h3>Depuis l'attribut adresse de la table Personne</h3>");
 
 		
-			for(String s : req2.requestfillOff(messages, connexion)){
+			for(String s : selectAdresseRequest.requestfillOff(messages, connexion)){
 				out.write(s);
 				out.write("<br>");
 			}
