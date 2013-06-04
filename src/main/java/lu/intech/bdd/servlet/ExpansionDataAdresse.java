@@ -64,10 +64,13 @@ public class ExpansionDataAdresse extends HttpServlet {
 				String sqlInsertAdresse = "INSERT INTO `Adresse` (`idAdresse`, `num`, `rue`, `code`, `ville`, `pays`) VALUES (NULL, ?, ?, ?, ?, ?)";
 				PreparedStatement prestInsert = ((Connection) migrate.getConnection()).prepareStatement(sqlInsertAdresse);
 				
-				int nbChamp = 5;
-				for(int i =0;i<nbChamp;i++){
-					prestInsert.setString(i+1, tabAdresse[i]);
-				}
+				prestInsert.setString(1, tabAdresse[0]);
+				prestInsert.setString(2, tabAdresse[1]);
+				prestInsert.setString(3, tabAdresse[2]);
+				prestInsert.setString(4, tabAdresse[3]);
+				prestInsert.setString(5, tabAdresse[4]);
+				
+				
 				
 				prestInsert.execute();
 
