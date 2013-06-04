@@ -36,16 +36,21 @@ public class ExpansionDataAdresse extends HttpServlet {
 
     private static void copyDataAdresse(MigrationManager migrate) {
 
-    	Connection connection = (Connection) migrate.getConnection();
-    
-    	
-		/* Exécution d'une requête de lecture */
-		ResultSet resultat;
+    	Connection connection = null;
+    	Statement statementSelect = null;
+    	Statement statementInsert = null;
+		ResultSet resultat = null;
+ 
 		try {
-			
-			Statement statementSelect = connection.createStatement();
-	    	Statement statementInsert = connection.createStatement();
+			 connection = (Connection) migrate.getConnection();
+		    
 	    	
+	
+		
+			statementSelect = connection.createStatement();
+	    	statementInsert = connection.createStatement();
+	    	
+			/* Exécution d'une requête de lecture */
 			resultat = statementSelect.executeQuery( "SELECT idPersonne, adresse FROM Personne;" );
 
 
@@ -85,10 +90,13 @@ public class ExpansionDataAdresse extends HttpServlet {
 				prestUpdate.setInt(2, idPersonne);
 				
 				prestUpdate.execute();
-				
-				
+					
 			}
-			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
 			if ( resultat != null ) {
 				try {
 					resultat.close();
@@ -96,14 +104,28 @@ public class ExpansionDataAdresse extends HttpServlet {
 				
 				}
 			}
+			if ( statementInsert != null ) {
+				try {
+					statementInsert.close();
+				} catch ( SQLException ignore ) {
+				
+				}
+			}
+			if ( statementSelect != null ) {
+				try {
+					statementSelect.close();
+				} catch ( SQLException ignore ) {
+				
+				}
+			}
+			if ( connection != null ) {
+				try {
+					connection.close();
+				} catch ( SQLException ignore ) {
+				
+				}
+			}
 			
-			statementSelect.close();
-	    	statementInsert.close();
-	    	connection.close();
-	    	
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 }
