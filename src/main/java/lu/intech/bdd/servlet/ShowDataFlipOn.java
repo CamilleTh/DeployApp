@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.migrate.migrate.MigrationManager;
 import lu.intech.bdd.request.SelectAdresseRequest;
-import migrate.MigrationManager;
 
 /**
  * Servlet implementation class Flip2

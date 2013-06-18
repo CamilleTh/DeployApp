@@ -1,13 +1,14 @@
 package lu.intech.bdd.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.migrate.migrate.MigrationManager;
 import lu.intech.bdd.singleton.MigrationManagerSingleton;
-import migrate.MigrationManager;
 
 /**
  * Servlet implementation class MigrateToExpansionAdresse

@@ -1,6 +1,6 @@
 package lu.intech.bdd.singleton;
 
-import migrate.MigrationManager;
+import lu.intech.bdd.migrate.migrate.MigrationManager;
 
 public final class MigrationManagerSingleton {
         

@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lu.intech.bdd.migrate.migrate.MigrationManager;
 import lu.intech.bdd.request.Initialisation;
 import lu.intech.bdd.singleton.MigrationManagerSingleton;
-import migrate.MigrationManager;
 
 public class InitialisationServlet extends HttpServlet {
 	public static final String ATT_MESSAGES = "messages";
