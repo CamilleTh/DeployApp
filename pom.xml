@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>lu.intech</groupId>
-	<artifactId>${artefactId}</artifactId>
+	<artifactId>DeployApp</artifactId>
 	<version>0.0.15-SNAPSHOT</version>
 	<packaging>war</packaging>
 
