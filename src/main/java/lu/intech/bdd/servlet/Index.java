@@ -16,6 +16,8 @@ public class Index extends HttpServlet {
 
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.print("test");
 		this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
 	}
 

@@ -104,6 +104,7 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     	<servlet-name>Index</servlet-name>
     	<url-pattern>/index</url-pattern>
     </servlet-mapping>
+
     
     
     <session-config>

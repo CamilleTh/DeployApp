@@ -32,10 +32,10 @@
 		</div>
 	</div>
 	<div class="container">
-
+			
 			<div class="span12">
 				<div class="well">
-					<h3>Model</h3>
+					<h3>Model </h3>
 					<img alt="0" src="images/0.png">
 				</div>
 			</div>
