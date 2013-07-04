@@ -19,7 +19,7 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="index">Database Migration Prod Env</a>
+				<a class="brand" href="index">Database Migration Prod Env 0.0.28</a>
 				<div class="navbar-content">
 					<ul class="nav">
 						<li class="step"><a href="bdd1">1</a></li>
